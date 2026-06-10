@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function CustomCursor() {
+  const [enabled, setEnabled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -15,10 +18,15 @@ export default function CustomCursor() {
     damping: 50,
   });
 
-  const [hidden, setHidden] = useState(false);
-
   useEffect(() => {
-    if (window.matchMedia("(hover: none)").matches) return;
+    const mediaQuery = window.matchMedia("(pointer: fine)");
+
+    if (!mediaQuery.matches) {
+      setEnabled(false);
+      return;
+    }
+
+    setEnabled(true);
 
     const moveCursor = (e: MouseEvent) => {
       mouseX.set(e.clientX);
@@ -38,6 +46,9 @@ export default function CustomCursor() {
       document.body.style.cursor = "auto";
     };
   }, [mouseX, mouseY]);
+
+  // Don't render on mobile/touch devices
+  if (!enabled) return null;
 
   return (
     <motion.div
