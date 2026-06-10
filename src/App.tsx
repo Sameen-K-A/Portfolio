@@ -7,6 +7,7 @@ import History from "./components/History";
 
 import CustomCursor from "./components/ui/custom-cursor";
 import LoadingScreen from "./components/Loading-screen";
+import Footer from "./components/Footer";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -20,6 +21,7 @@ function App() {
       <WhatIDo />
       <Experience />
       <History />
+      <Footer />
     </div>
   );
 }

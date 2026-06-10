@@ -2,7 +2,7 @@ import { TextReveal } from "./ui/text-reveal";
 
 const Experience = () => {
   return (
-    <div className="flex items-center px-4">
+    <div className="flex items-center xl:px-4">
       <div className="bg-linear-to-b from-accent-foreground/30 to-background w-full h-full pt-14 lg:pt-22 rounded-4xl px-4 xl:px-0">
         <div className="w-full max-w-5xl mx-auto">
 

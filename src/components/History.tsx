@@ -10,7 +10,7 @@ const myHistory = [
 
 const History = () => {
   return (
-    <div className="pt-28 lg:pt-44 flex items-center">
+    <div className="pt-28 lg:pt-44 pb-14 lg:pb-22 flex items-center">
       <div className="w-full">
         <h1 className="text-sm mb-6 text-accent tracking-widest max-w-5xl mx-auto px-4 xl:px-0">
           HISTORY
@@ -20,7 +20,7 @@ const History = () => {
           {myHistory.map((history, index) => (
             <BgReveal
               key={index}
-              className="border-t last:border-b border-accent-foreground"
+              className="border-t last:border-b border-accent-foreground md:px-4"
             >
               <div className="w-full max-w-5xl mx-auto px-4 md:px-0 py-6 flex flex-row items-center gap-4 md:gap-10">
 
