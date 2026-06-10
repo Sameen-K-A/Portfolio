@@ -1,0 +1,42 @@
+<svg width="100%" viewBox="0 0 680 520" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Ghost icon</title>
+  <desc>A ghost silhouette with eyes, a horizontal bar across the middle, and a jagged bottom edge</desc>
+
+  <g transform="translate(190, 20)">
+    <!-- Ghost body: rounded top + sides + jagged bottom -->
+    <path
+      d="M 150 20 C 150 20, 20 20, 20 160 L 10 400 L 60 370 L 80 400 L 110 370 L 140 400 L 170 370 L 200 400 L 230 370 L 280 400 L 280 400 L 280 160 C 280 20, 150 20, 150 20 Z"
+      fill="#0D0D0D"
+      stroke="none"
+    />
+
+    <!-- Horizontal arm bar -->
+    <rect
+      x="-40"
+      y="195"
+      width="380"
+      height="52"
+      rx="26"
+      fill="#0D0D0D"
+      stroke="none"
+    />
+
+    <!-- Left eye -->
+    <circle
+      cx="105"
+      cy="160"
+      r="28"
+      fill="#b7ab98"
+      stroke="none"
+    />
+
+    <!-- Right eye -->
+    <circle
+      cx="195"
+      cy="160"
+      r="28"
+      fill="#b7ab98"
+      stroke="none"
+    />
+  </g>
+</svg>
