@@ -4,6 +4,7 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 export default function CustomCursor() {
   const [enabled, setEnabled] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [allowBlend, setAllowBlend] = useState(false);
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -35,6 +36,7 @@ export default function CustomCursor() {
       const target = e.target as HTMLElement;
 
       setHidden(!!target.closest("[data-cursor-hide]"));
+      setAllowBlend(!!target.closest("[data-allow-blend]"));
     };
 
     window.addEventListener("mousemove", moveCursor);
@@ -61,7 +63,7 @@ export default function CustomCursor() {
         duration: 0.3,
         ease: "easeOut",
       }}
-      className="pointer-events-none fixed left-0 top-0 z-999 rounded-full bg-primary"
+      className={`pointer-events-none fixed left-0 top-0 z-999 rounded-full bg-primary ${allowBlend && 'mix-blend-difference'}`}
       style={{
         x: springX,
         y: springY,

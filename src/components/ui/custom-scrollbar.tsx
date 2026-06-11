@@ -63,7 +63,7 @@ const Scrollbar = () => {
   }, [isDragging]);
 
   return (
-    <div className="fixed right-6 top-1/2 z-50 hidden -translate-y-1/2 md:flex items-center justify-center" data-cursor-hide>
+    <div className="fixed right-6 xl:right-10 top-1/2 z-50 hidden -translate-y-1/2 md:flex items-center justify-center" data-cursor-hide>
 
       <div
         ref={trackRef}
