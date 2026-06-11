@@ -4,8 +4,36 @@ import { motion } from "framer-motion";
 const TRACK_HEIGHT = 200;
 const THUMB_SIZE = 20;
 
+const useContainerBounds = () => {
+  const [bounds, setBounds] = useState({ left: 0, right: 0 });
+
+  useEffect(() => {
+    const updateBounds = () => {
+      const container = document.querySelector('.max-w-500');
+      if (container) {
+        const rect = container.getBoundingClientRect();
+        setBounds({
+          left: rect.left,
+          right: window.innerWidth - rect.right,
+        });
+      }
+    };
+
+    updateBounds();
+    window.addEventListener('resize', updateBounds);
+    window.addEventListener('scroll', updateBounds);
+    return () => {
+      window.removeEventListener('resize', updateBounds);
+      window.removeEventListener('scroll', updateBounds);
+    };
+  }, []);
+
+  return bounds;
+};
+
 const Scrollbar = () => {
   const trackRef = useRef<HTMLDivElement>(null);
+  const bounds = useContainerBounds();
 
   const [thumbTop, setThumbTop] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
@@ -63,7 +91,9 @@ const Scrollbar = () => {
   }, [isDragging]);
 
   return (
-    <div className="fixed right-6 xl:right-10 top-1/2 z-50 hidden -translate-y-1/2 md:flex items-center justify-center" data-cursor-hide>
+    <div className="fixed top-1/2 z-50 hidden -translate-y-1/2 lg:flex items-center justify-center" data-cursor-hide style={{
+      right: Math.max(bounds.right + 40) + 'px'
+    }}>
 
       <div
         ref={trackRef}

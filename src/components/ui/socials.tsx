@@ -1,5 +1,32 @@
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+
+const useContainerBounds = () => {
+  const [bounds, setBounds] = useState({ left: 0, right: 0 });
+
+  useEffect(() => {
+    const updateBounds = () => {
+      const container = document.querySelector('.max-w-500');
+      if (container) {
+        const rect = container.getBoundingClientRect();
+        setBounds({
+          left: rect.left,
+          right: window.innerWidth - rect.right,
+        });
+      }
+    };
+
+    updateBounds();
+    window.addEventListener('resize', updateBounds);
+    window.addEventListener('scroll', updateBounds);
+    return () => {
+      window.removeEventListener('resize', updateBounds);
+      window.removeEventListener('scroll', updateBounds);
+    };
+  }, []);
+
+  return bounds;
+};
 
 const socials = [
   {
@@ -81,8 +108,11 @@ const MagneticIcon = ({ icon, link }: { icon: React.ReactNode; link: string }) =
 };
 
 const Socials = () => {
+  const bounds = useContainerBounds();
   return (
-    <div className="fixed left-6 xl:left-10 top-1/2 z-50 hidden -translate-y-1/2 md:flex flex-col gap-9" data-allow-blend>
+    <div className="fixed top-1/2 z-50 hidden -translate-y-1/2 lg:flex flex-col gap-9" data-allow-blend style={{
+      left: Math.max(bounds.left + 40) + 'px'
+    }}>
       {socials.map((social) => (
         <MagneticIcon
           key={social.name}

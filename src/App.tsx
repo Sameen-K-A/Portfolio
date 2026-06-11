@@ -1,11 +1,13 @@
 import { useState } from "react";
 
+import Hero from "./components/Hero";
 import AboutMe from "./components/About-me";
 import Experience from "./components/Experience";
 import WhatIDo from "./components/What-i-do";
 import History from "./components/History";
 import Projects from "./components/Projects";
 import Inspiration from "./components/Inspiration";
+import Quotes from "./components/Quotes";
 import Footer from "./components/Footer";
 
 import CustomCursor from "./components/ui/custom-cursor";
@@ -18,19 +20,21 @@ function App() {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <div className="cursor-default">
+    <div className="cursor-default max-w-500 mx-auto border-x border-accent-foreground">
       {!loaded && <LoadingScreen onComplete={() => setLoaded(true)} />}
       <CustomCursor />
       <Socials />
       <Scrollbar />
       <ContentProtection />
 
+      <Hero />
       <AboutMe />
       <WhatIDo />
       <Experience />
       <History />
       <Projects />
       <Inspiration />
+      <Quotes />
       <Footer />
     </div>
   );
