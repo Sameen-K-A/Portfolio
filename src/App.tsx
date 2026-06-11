@@ -5,6 +5,7 @@ import Experience from "./components/Experience";
 import WhatIDo from "./components/What-i-do";
 import History from "./components/History";
 import Projects from "./components/Projects";
+import Inspiration from "./components/Inspiration";
 import Footer from "./components/Footer";
 
 import CustomCursor from "./components/ui/custom-cursor";
@@ -29,6 +30,7 @@ function App() {
       <Experience />
       <History />
       <Projects />
+      <Inspiration />
       <Footer />
     </div>
   );
