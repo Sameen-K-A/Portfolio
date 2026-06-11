@@ -15,7 +15,7 @@ const ProjectCard = ({ project, index }: { project: number; index: number }) => 
 
 function Projects() {
   return (
-    <div className="pt-14 lg:pt-22">
+    <div className="py-20 lg:py-25">
       <div className="relative mx-auto w-full max-w-5xl">
 
         <div className="mb-6">

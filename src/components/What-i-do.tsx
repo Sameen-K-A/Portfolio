@@ -11,7 +11,7 @@ const mySkills = [
 
 const WhatIDo = () => {
   return (
-    <div className="pt-38 lg:pt-54 pb-19 lg:pb-27 flex items-center">
+    <div className="py-20 lg:py-25 flex items-center">
       <div className="w-full">
 
         <h1 className="text-sm mb-6 text-accent tracking-widest max-w-5xl mx-auto px-4 xl:px-0">
