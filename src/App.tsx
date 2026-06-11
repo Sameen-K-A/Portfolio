@@ -4,6 +4,7 @@ import AboutMe from "./components/About-me";
 import Experience from "./components/Experience";
 import WhatIDo from "./components/What-i-do";
 import History from "./components/History";
+import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 
 import CustomCursor from "./components/ui/custom-cursor";
@@ -27,6 +28,7 @@ function App() {
       <WhatIDo />
       <Experience />
       <History />
+      <Projects />
       <Footer />
     </div>
   );
