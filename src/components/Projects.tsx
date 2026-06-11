@@ -16,15 +16,15 @@ const ProjectCard = ({ project, index }: { project: number; index: number }) => 
 function Projects() {
   return (
     <div className="py-20 lg:py-25">
-      <div className="relative mx-auto w-full max-w-5xl">
+      <div className="relative mx-auto w-full max-w-5xl px-4 md:px-12 lg:px-20 xl:px-0">
 
         <div className="mb-6">
-          <h1 className="px-4 text-sm tracking-widest text-accent xl:px-0">
+          <h1 className="text-sm tracking-widest text-accent">
             PROJECTS
           </h1>
         </div>
 
-        <div className="px-4 xl:px-0">
+        <div className="">
           {myProjects.map((project, index) => (
             <ProjectCard key={project} project={project} index={index} />
           ))}

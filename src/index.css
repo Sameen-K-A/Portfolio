@@ -32,6 +32,8 @@
   body {
     @apply bg-background;
     font-family: 'AVGARDD_2', sans-serif;
+    margin: 0;
+    padding: 0;
   }
 }
 

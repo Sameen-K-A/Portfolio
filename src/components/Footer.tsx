@@ -47,9 +47,9 @@ function SocialLink({ label, href }: { label: string; href: string }) {
 
 export default function Footer() {
   return (
-    <footer className="flex items-center xl:px-4 text-accent">
-      <div className="bg-linear-to-b from-accent-foreground/30 to-background w-full h-full py-20 lg:py-25 rounded-4xl px-4 xl:px-0">
-        <div className="w-full max-w-5xl mx-auto">
+    <footer className="flex items-center text-accent">
+      <div className="bg-linear-to-b from-accent-foreground/30 to-background w-full h-full py-20 lg:py-25 rounded-4xl">
+        <div className="w-full max-w-5xl mx-auto px-4 md:px-12 lg:px-20 xl:px-0">
 
           <h1 className="text-sm mb-6 text-accent tracking-widest">
             CONNECT
