@@ -1,21 +1,21 @@
 import { TextReveal } from "./ui/text-reveal";
 
-const Inspiration = () => {
+const Drive = () => {
   return (
     <div className="py-20 lg:py-25 flex items-center">
       <div className="w-full max-w-5xl mx-auto px-4 md:px-12 lg:px-20 xl:px-0">
 
         <h1 className="text-sm mb-6 text-accent tracking-widest">
-          INSPIRATION
+          THE DRIVE
         </h1>
 
         <TextReveal
-          highlightWords={["selectively", "skilled"]}
+          highlightWords={["complex", "challenges"]}
           textStyle={{
             fontSize: "clamp(1.7rem, 4.8vw, 5.2rem)"
           }}
         >
-          I'm a selectively skilled product designer with strong focus on producing high quality & impactful digital experience.
+          Thriving on complex challenges, continuously refining engineering standards to build high-performance systems that leave a lasting impact.
         </TextReveal>
 
       </div>
@@ -23,4 +23,4 @@ const Inspiration = () => {
   );
 };
 
-export default Inspiration;
+export default Drive;

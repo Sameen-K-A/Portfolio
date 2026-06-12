@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function CustomCursor() {
-  const [enabled, setEnabled] = useState(false);
+  const [enabled] = useState(() => typeof window !== "undefined" && window.matchMedia("(pointer: fine)").matches);
   const [hidden, setHidden] = useState(false);
   const [allowBlend, setAllowBlend] = useState(false);
 
@@ -20,14 +20,7 @@ export default function CustomCursor() {
   });
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(pointer: fine)");
-
-    if (!mediaQuery.matches) {
-      setEnabled(false);
-      return;
-    }
-
-    setEnabled(true);
+    if (!enabled) return;
 
     const moveCursor = (e: MouseEvent) => {
       mouseX.set(e.clientX);
@@ -47,9 +40,8 @@ export default function CustomCursor() {
       window.removeEventListener("mousemove", moveCursor);
       document.body.style.cursor = "auto";
     };
-  }, [mouseX, mouseY]);
+  }, [enabled, mouseX, mouseY]);
 
-  // Don't render on mobile/touch devices
   if (!enabled) return null;
 
   return (

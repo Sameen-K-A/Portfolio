@@ -2,18 +2,20 @@ import { TextReveal } from "./ui/text-reveal";
 import { BgReveal } from "./ui/bg-reveal";
 
 const myHistory = [
-  { Role: "Team Lead", company: "Veevity Technologies" },
-  { Role: "Frontend developer", company: "Growhut Technologies" },
-  { Role: "Self learing", company: "Mastering MERN stack with real world projects" },
-  { Role: "BSc Computer science", company: "MG University, Kottayam" },
+  { title: "Backend Systems", subtitle: "Node.js, Express.js, TypeScript, Clean Architecture" },
+  { title: "Frontend & Mobile", subtitle: "React.js, Next.js, React Native, Tailwind CSS" },
+  { title: "Real-Time Tech", subtitle: "WebRTC, Socket.io, LiveKit, WebSocket" },
+  { title: "Database & Caching", subtitle: "MongoDB, PostgreSQL, Redis Caching" },
+  { title: "Cloud & DevOps", subtitle: "AWS (EC2, S3), NGINX, PM2, CI/CD Pipelines" },
+  { title: "AI & Integrations", subtitle: "Gemini API, Razorpay, AI-driven automation" },
 ];
 
-const Quotes = () => {
+const Skills = () => {
   return (
     <div className="py-20 lg:py-25 flex items-center">
       <div className="w-full">
         <h1 className="text-sm mb-6 text-accent tracking-widest max-w-5xl mx-auto px-4 md:px-12 lg:px-20 xl:px-0">
-          QUOTES
+          CORE EXPERTISE
         </h1>
 
         <div data-cursor-hide>
@@ -32,7 +34,7 @@ const Quotes = () => {
                       fontWeight: 500,
                     }}
                   >
-                    {history.Role}
+                    {history.title}
                   </TextReveal>
 
                   <TextReveal
@@ -41,7 +43,7 @@ const Quotes = () => {
                       fontWeight: 100,
                     }}
                   >
-                    {history.company}
+                    {history.subtitle}
                   </TextReveal>
                 </div>
               </div>
@@ -53,4 +55,4 @@ const Quotes = () => {
   );
 };
 
-export default Quotes;
+export default Skills;

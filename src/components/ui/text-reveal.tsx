@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 import type { FC, CSSProperties } from "react";
 import { useScroll, useTransform, motion, MotionValue, useSpring } from "framer-motion";
 
@@ -24,6 +24,8 @@ interface LineRevealProps {
   startAt: number;
   endAt: number;
 }
+
+const EMPTY_ARRAY: string[] = [];
 
 const LineReveal: FC<LineRevealProps> = ({ line, progress, startAt, endAt }) => {
   const clipX = useTransform(progress, [startAt, endAt], [100, 0], { clamp: true });
@@ -84,11 +86,10 @@ const LineReveal: FC<LineRevealProps> = ({ line, progress, startAt, endAt }) => 
   );
 };
 
-export const TextReveal: FC<TextRevealProps> = ({ children, highlightWords = [], textStyle }) => {
+export const TextReveal: FC<TextRevealProps> = ({ children, highlightWords = EMPTY_ARRAY, textStyle }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const measureRef = useRef<HTMLDivElement>(null);
   const [lines, setLines] = useState<Line[]>([]);
-  const [mounted, setMounted] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -97,17 +98,19 @@ export const TextReveal: FC<TextRevealProps> = ({ children, highlightWords = [],
 
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 90, damping: 24, mass: 0.35 });
 
-  const highlightSet = new Set(
-    highlightWords.map((w) => w.toLowerCase())
-  );
+  const words: Word[] = useMemo(() => {
+    const highlightSet = new Set(
+      highlightWords.map((w) => w.toLowerCase())
+    );
 
-  const words: Word[] = children
-    .split(/\s+/)
-    .filter(Boolean)
-    .map((text) => ({
-      text,
-      isHighlight: highlightSet.has(text.toLowerCase()),
-    }));
+    return children
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((text) => ({
+        text,
+        isHighlight: highlightSet.has(text.toLowerCase()),
+      }));
+  }, [children, highlightWords]);
 
   const defaultStyle: CSSProperties = {
     fontSize: "clamp(1.6rem, 4.5vw, 5rem)",
@@ -118,12 +121,6 @@ export const TextReveal: FC<TextRevealProps> = ({ children, highlightWords = [],
   };
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
-
     let rafId: number;
 
     const measureLines = () => {
@@ -220,7 +217,7 @@ export const TextReveal: FC<TextRevealProps> = ({ children, highlightWords = [],
         cancelAnimationFrame(rafId);
       }
     };
-  }, [mounted, children]);
+  }, [children, words]);
 
   const numLines = lines.length || 1;
   const LEAD = 0.08;

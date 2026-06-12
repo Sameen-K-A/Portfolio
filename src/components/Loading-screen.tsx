@@ -12,7 +12,6 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 
   useEffect(() => {
     let current = 0;
-    setProgress(0);
 
     const firstPhase = setInterval(() => {
       current += Math.random() * 6 + 3;

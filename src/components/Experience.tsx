@@ -11,12 +11,12 @@ const Experience = () => {
           </h1>
 
           <TextReveal
-            highlightWords={["a", "decade"]}
+            highlightWords={["leadership"]}
             textStyle={{
               fontSize: "clamp(1.7rem, 4.8vw, 5.2rem)"
             }}
           >
-            Over a decade of experience in interactive design and working with some of the most people in the business.
+            Proven leadership experience in guiding cross-functional teams to engineer scalable full-stack products.
           </TextReveal>
 
         </div>

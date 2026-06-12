@@ -6,8 +6,8 @@ import Experience from "./components/Experience";
 import WhatIDo from "./components/What-i-do";
 import History from "./components/History";
 import Projects from "./components/Projects";
-import Inspiration from "./components/Inspiration";
-import Quotes from "./components/Quotes";
+import Drive from "./components/Drive";
+import Skills from "./components/Skills";
 import Footer from "./components/Footer";
 
 import CustomCursor from "./components/ui/custom-cursor";
@@ -33,8 +33,8 @@ function App() {
       <Experience />
       <History />
       <Projects />
-      <Inspiration />
-      <Quotes />
+      <Drive />
+      <Skills />
       <Footer />
     </div>
   );

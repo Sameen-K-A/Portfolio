@@ -10,12 +10,12 @@ const AboutMe = () => {
         </h1>
 
         <TextReveal
-          highlightWords={["selectively", "skilled"]}
+          highlightWords={["scalable", "products"]}
           textStyle={{
             fontSize: "clamp(1.7rem, 4.8vw, 5.2rem)"
           }}
         >
-          I'm a selectively skilled product designer with strong focus on producing high quality & impactful digital experience.
+          Engineering scalable products through full-stack development, with a relentless focus on code quality and system architecture.
         </TextReveal>
 
       </div>

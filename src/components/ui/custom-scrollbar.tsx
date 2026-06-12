@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-const TRACK_HEIGHT = 200;
+const TRACK_HEIGHT = 250;
 const THUMB_SIZE = 20;
 
 const useContainerBounds = () => {

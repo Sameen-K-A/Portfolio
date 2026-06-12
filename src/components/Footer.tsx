@@ -1,15 +1,13 @@
 import { BgReveal } from "./ui/bg-reveal";
 
 const socialLinks = [
-  { label: "Dribbble", href: "#" },
-  { label: "Youtube", href: "#" },
-  { label: "Linkedin", href: "#" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/sameen-ka/" },
+  { label: "GitHub", href: "https://github.com/Sameen-K-A" }
 ];
 
 const moreLinks = [
-  { label: "Instagram", href: "#" },
-  { label: "Facebook", href: "#" },
-  { label: "Behance", href: "#" },
+  { label: "WhatsApp", href: "https://wa.me/919562718577" },
+  { label: "Download CV", href: "/cv/Sameen_K_A.pdf" }
 ];
 
 function TriangleArrow() {
@@ -26,11 +24,16 @@ function TriangleArrow() {
 }
 
 function SocialLink({ label, href }: { label: string; href: string }) {
+  const isDownload = label === "Download CV";
+
   return (
     <a
       href={href}
       className="flex items-center w-full"
       style={{ textDecoration: "none" }}
+      target="_blank"
+      rel="noopener noreferrer"
+      {...(isDownload && { download: true })}
     >
       <TriangleArrow />
       <BgReveal>
@@ -57,19 +60,19 @@ export default function Footer() {
 
           <div className="flex flex-col md:flex-row md:justify-between gap-4">
 
-            <div className="flex flex-col w-full">
+            <div className="flex flex-col w-full md:gap-4">
               {socialLinks.map((link) => (
                 <SocialLink key={link.label} {...link} />
               ))}
             </div>
 
-            <div className="flex flex-col w-full">
+            <div className="flex flex-col w-full md:gap-4">
               {moreLinks.map((link) => (
                 <SocialLink key={link.label} {...link} />
               ))}
             </div>
 
-            <div className="flex flex-col gap-4 w-full" data-cursor-hide>
+            <div className="flex flex-col gap-1 w-full" data-cursor-hide>
               <BgReveal>
                 <div className="px-2">
                   <p className="text-sm font-bold mb-0.5">
@@ -78,6 +81,8 @@ export default function Footer() {
                   <a
                     href="mailto:sameensameen60@gmail.com"
                     className="text-sm"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     sameensameen60@gmail.com
                   </a>

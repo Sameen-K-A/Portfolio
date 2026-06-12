@@ -2,10 +2,10 @@ import { TextReveal } from "./ui/text-reveal";
 import { BgReveal } from "./ui/bg-reveal";
 
 const myHistory = [
-  { date: "NOW", Role: "Team Lead", company: "Veevity Technologies" },
-  { date: "2025", Role: "Frontend developer", company: "Growhut Technologies" },
-  { date: "2024", Role: "Self learing", company: "Mastering MERN stack with real world projects" },
-  { date: "2023", Role: "BSc Computer science", company: "MG University, Kottayam" },
+  { date: "NOW", Role: "Lead Full-Stack Engineer", company: "Veevity Technologies" },
+  { date: "2025", Role: "Frontend Developer", company: "Growhut Technologies" },
+  { date: "2024", Role: "Self Learning", company: "Engineered real-world applications and mastered MERN architecture" },
+  { date: "2023", Role: "BSc Computer Science", company: "MG University, Kottayam" },
 ];
 
 const History = () => {
