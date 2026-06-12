@@ -20,7 +20,7 @@ const Hero = () => {
               <h1
                 className="tracking-tight leading-[0.95] text-accent"
                 style={{
-                  fontSize: "clamp(3.4rem, 7vw, 7rem)",
+                  fontSize: "clamp(4.3rem, 7vw, 7rem)",
                   fontWeight: 700,
                   textAlign: "center"
                 }}
