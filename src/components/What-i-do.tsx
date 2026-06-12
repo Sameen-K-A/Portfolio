@@ -24,7 +24,7 @@ const WhatIDo = () => {
               <div className="w-full max-w-5xl mx-auto -mb-2 lg:-mb-3 xl:-mb-4 px-4 md:px-12 lg:px-20 xl:px-0">
                 <TextReveal
                   textStyle={{
-                    fontSize: "clamp(3.7rem, 7vw, 7rem)",
+                    fontSize: "clamp(3.4rem, 7vw, 7rem)",
                     fontWeight: 700
                   }}
                 >

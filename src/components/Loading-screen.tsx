@@ -126,18 +126,31 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
               </div>
             </motion.div>
           ) : (
-            <motion.button
+            <motion.div
               key="button"
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              onClick={handleStart}
-              className="w-45 cursor-pointer rounded-full border border-accent bg-transparent py-2 text-sm font-medium tracking-[0.25em] text-accent transition-colors duration-300 hover:bg-accent hover:text-background"
+              className="flex flex-col items-center gap-3"
             >
-              START
-            </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={handleStart}
+                className="w-45 cursor-pointer rounded-full border border-accent bg-transparent py-2 text-sm font-medium tracking-[0.25em] text-accent transition-colors duration-300 hover:bg-accent hover:text-background"
+              >
+                START
+              </motion.button>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="text-xs text-accent/60"
+              >
+                Curious? hit <span className="text-primary">Start</span> to find out who I am
+              </motion.p>
+            </motion.div>
           )}
         </AnimatePresence>
       </motion.div>
